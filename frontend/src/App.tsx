@@ -1,28 +1,34 @@
-import { Checkout, Home, ProductDetail } from './pages';
+import { useState } from 'react';
+import { Checkout, Layout, ProductDetail } from './pages';
 import ProductGrid from './stories/ProductGrid';
-import { Routes, Route, useParams } from 'react-router';
+import { Routes, Route, useLocation } from 'react-router';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function App() {
+  const location = useLocation();
+
   return (
-    <Routes>
-      <Route
-        path='/'
-        element={<Home />}
+    <AnimatePresence mode='wait'>
+      <Routes
+        location={location}
+        key={location.pathname}
       >
         <Route
           path='/'
-          element={<ProductGrid />}
-        />
-        <Route
-          path=':productId'
-          element={<ProductDetail />}
-        />
-      </Route>
-      <Route
-        path='/checkout'
-        element={<Checkout />}
-      />
-    </Routes>
+          element={<Layout />}
+        >
+          <Route
+            index
+            path='/'
+            element={<ProductGrid />}
+          />
+          <Route
+            path='/:productId'
+            element={<ProductDetail />}
+          />
+        </Route>
+      </Routes>
+    </AnimatePresence>
   );
 }
 

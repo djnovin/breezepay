@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from './Button';
 import { useNavigate } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 type Props = {
   product: {
@@ -24,7 +24,7 @@ const ProductItem: React.FC<Props> = ({ product }) => {
     <div className='flex flex-col gap-2 justify-center'>
       <div className='overflow-clip'>
         <img
-          className='transform cursor-pointer hover:rotate-6 hover:scale-[90%] hover:-translate-y-8 transition duration-300 ease-in-out w-full'
+          className='transform cursor-pointer w-full'
           src={product.image}
           alt={product.title}
         />

@@ -1,12 +1,13 @@
 import React from 'react';
 import ProductGrid from '../stories/ProductGrid';
+import { Outlet } from 'react-router';
 
-const Home = () => {
+const Layout = () => {
   return (
     <section className='px-4 pb-20 md:px-8 lg:px-12'>
-      <ProductGrid />
+      <Outlet />
     </section>
   );
 };
 
-export default Home;
+export default Layout;

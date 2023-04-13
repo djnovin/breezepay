@@ -10,10 +10,12 @@ export const instance = axios.create({
 export const getProducts = async() => {
     const {data} = await instance.get('/products/');
     return data;
+    console.log(data);
 }
 
-export const getProduct = async(id: string) => {
-    const {data} = await instance.get(`/products/${id}`);
+export const getProduct = async(id: any) => {
+    const {data} = await instance.get(`/products/${id}/`);
+    console.log(data);
     return data;
 }
 
