@@ -1,0 +1,6 @@
+djangorestframework==3.14.0
+Django==4.2
+django-filter==23.1
+Markdown==3.4.3
+psycopg2-binary==2.9.6
+django-cors-headers==3.14.0
