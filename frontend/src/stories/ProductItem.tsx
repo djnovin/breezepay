@@ -14,7 +14,7 @@ const ProductItem: React.FC<Props> = ({ product }) => {
     <div className='flex flex-col gap-2 justify-center'>
       <div className='overflow-clip'>
         <img
-          className='transform cursor-pointer hover:scale-[101%] hover:-translate-y-2 transition duration-300 ease-in-out w-full'
+          className='transform cursor-pointer hover:rotate-6 hover:scale-[90%] hover:-translate-y-8 transition duration-300 ease-in-out w-full'
           src={product.image}
           alt={product.title}
         />
