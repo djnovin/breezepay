@@ -1,12 +1,28 @@
+import { Checkout, Home, ProductDetail } from './pages';
 import ProductGrid from './stories/ProductGrid';
+import { Routes, Route, useParams } from 'react-router';
 
 function App() {
   return (
-    <div className=''>
-      <section className='px-4 pb-20 md:px-8 lg:px-12'>
-        <ProductGrid />
-      </section>
-    </div>
+    <Routes>
+      <Route
+        path='/'
+        element={<Home />}
+      >
+        <Route
+          path='/'
+          element={<ProductGrid />}
+        />
+        <Route
+          path=':productId'
+          element={<ProductDetail />}
+        />
+      </Route>
+      <Route
+        path='/checkout'
+        element={<Checkout />}
+      />
+    </Routes>
   );
 }
 

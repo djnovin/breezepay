@@ -1,8 +1,11 @@
 import React from 'react';
 import { Button } from './Button';
+import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 
 type Props = {
   product: {
+    id: number;
     image: string;
     title: string;
     price: number;
@@ -10,6 +13,13 @@ type Props = {
 };
 
 const ProductItem: React.FC<Props> = ({ product }) => {
+  let navigate = useNavigate();
+
+  const handleBuyNow = () => {
+    const url = '/checkout?product=' + JSON.stringify(product);
+    navigate(url);
+  };
+
   return (
     <div className='flex flex-col gap-2 justify-center'>
       <div className='overflow-clip'>
@@ -24,7 +34,10 @@ const ProductItem: React.FC<Props> = ({ product }) => {
         <p className='text-base font-bold mb-2'>${product.price}</p>
       </div>
       <div>
-        <Button label={'Buy Now'} />
+        <Button
+          onClick={handleBuyNow}
+          label={'Buy Now'}
+        />
       </div>
     </div>
   );
